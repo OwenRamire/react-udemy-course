@@ -4,3 +4,13 @@
   justify-content: center;
   align-items: center;
 }
+
+.search-container-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.search-container-top {
+  justify-content: center;
+  align-items: flex-start;
+}
