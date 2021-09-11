@@ -1,10 +1,9 @@
+import Search from './views/search/index.jsx';
 import './styles/index.css';
 
 const App = () => {
   return (
-    <div>
-      <h1>Hello React</h1>
-    </div>
+    <Search />
   );
 }
 
