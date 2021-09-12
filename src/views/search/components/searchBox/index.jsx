@@ -2,7 +2,7 @@ import {useState} from 'react';
 
 import './searchBoxStyle.css';
 
-const SearchBox = ({onSearch, onClose}) => {
+const SearchBox = ({onSearch, onClose, isSearching}) => {
   const [searchValue, setSearchValue] = useState('');
 
   const handleSearchClick = () => {
@@ -22,8 +22,8 @@ const SearchBox = ({onSearch, onClose}) => {
               setSearchValue(e.target.value);
             }} />
         </label>
-        <button onClick={onSearch}>Buscar</button>
-        <button onClick={handleSearchClick}>Cerrar</button>
+        <button onClick={() => onSearch(searchValue)} disabled={!searchValue.length}>Buscar</button>
+        {isSearching && <button onClick={handleSearchClick} disabled={!searchValue.length}>Cerrar</button>}
       </div>
     </div>
   );
