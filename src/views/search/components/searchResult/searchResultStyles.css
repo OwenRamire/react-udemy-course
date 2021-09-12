@@ -1,0 +1,11 @@
+.search-result {
+  width: 95%;
+  margin: 1rem auto;
+}
+
+.search-result-item {
+  background: #E8E7E7;
+  margin: 1rem auto;
+  padding: 10px;
+  width: 95%;
+}
