@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import SearchBox from './components/searchBox';
+import SearchBox from './components/searchBox/SearchBox';
 import SearchResult from './components/searchResult/SearchResult';
 
 import data from '../../data/users.json';
