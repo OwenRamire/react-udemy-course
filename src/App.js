@@ -1,9 +1,9 @@
-import Search from './views/search/index.jsx';
+import Routes from './routes/Routes';
 import './styles/index.css';
 
 const App = () => {
   return (
-    <Search />
+    <Routes />
   );
 }
 
