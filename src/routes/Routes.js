@@ -2,10 +2,11 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-} from "react-router-dom";
-import Home from "../views/home/Home";
-import Search from "../views/search/Search";
-import FourZeroFour from "../views/404/FourZeroFour";
+} from 'react-router-dom';
+import Home from '../views/home/Home';
+import Search from '../views/search/Search';
+import PokemonDetail from '../views/pokemonDetail/PokemonDetail';
+import FourZeroFour from '../views/404/FourZeroFour';
 
 const Routes = () => {
   return (
@@ -16,6 +17,10 @@ const Routes = () => {
         </Route>
         <Route path="/search">
           <Search />
+        </Route>
+        {/* React router let us to have dinamic parameter */}
+        <Route path="/pokemon/:id">
+          <PokemonDetail />
         </Route>
         <Route>
           <FourZeroFour />
