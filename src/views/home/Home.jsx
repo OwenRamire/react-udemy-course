@@ -1,19 +1,18 @@
 import { useContext, useEffect } from 'react';
 import PokemonContext from '../../context/pokemons/PokemonContext';
+import PokemonList from './components/PokemonList';
 
 const Home = () => {
   // Assign the context value to use in this component
-  const myPokemonContext = useContext(PokemonContext);
+  const { getPokemons, pokemons } = useContext(PokemonContext);
 
   useEffect(() => {
-    myPokemonContext.getPokemons().catch(null);
+    getPokemons().catch(null);
   }, []);
-
-  console.log(myPokemonContext.pokemons);
 
   return (
     <div>
-      <h1>Home</h1>
+      <PokemonList pokemons={pokemons} />
     </div>
   );
 }
