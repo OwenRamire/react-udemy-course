@@ -4,17 +4,17 @@ import PokemonList from './components/PokemonList';
 
 const Home = () => {
   // Assign the context value to use in this component
-  const { getPokemons, pokemons } = useContext(PokemonContext);
+  const { getPokemons, pokemons, isLoading } = useContext(PokemonContext);
 
   useEffect(() => {
     getPokemons().catch(null);
   }, []);
 
-  return (
-    <div>
-      <PokemonList pokemons={pokemons} />
-    </div>
-  );
+  if(isLoading) {
+    return <h1>Loading all pokemons...</h1>;
+  }
+
+  return <PokemonList pokemons={pokemons} />;
 }
 
 export default Home;

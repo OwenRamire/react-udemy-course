@@ -5,13 +5,17 @@ import { useState } from 'react';
 const PokemonProvider = ({children}) => {
   const [pokemons, setPokemons] = useState([]);
   const [pokemonDetail, setPokemonDetail] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
 
   const getPokemons = async () => {
     try {
+      setIsLoading(true);
       const pokemonResult = await apiCall({url: 'https://pokeapi.co/api/v2/pokemon?limit=100'});
       setPokemons(pokemonResult.results);
     } catch (err) {
       setPokemons([]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -20,10 +24,13 @@ const PokemonProvider = ({children}) => {
       Promise.reject('The id is required');
     }
     try {
+      setIsLoading(true);
       const pokemonResultDetail = await apiCall({url: `https://pokeapi.co/api/v2/pokemon/${id}`})
       setPokemonDetail(pokemonResultDetail);
     } catch(error) {
       setPokemonDetail({});
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -37,7 +44,9 @@ const PokemonProvider = ({children}) => {
       getPokemons,
       pokemons,
       getPokemonDetail,
-      pokemonDetail }}>
+      pokemonDetail,
+      isLoading
+    }}>
       {children}
     </PokemonContext.Provider>
   );

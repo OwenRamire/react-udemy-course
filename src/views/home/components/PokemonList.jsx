@@ -10,7 +10,7 @@ const PokemonList = ({pokemons}) => {
   }
   
   return (
-    <div>
+    <div className="pokemon-list-container">
       {listAllPokemons(pokemons)}
     </div>
   );

@@ -7,7 +7,7 @@ const PokemonDetail = () => {
   // In this caseis going to go to the route and give me the parameter
   // that I define in the route
   const { id } = useParams();
-  const { getPokemonDetail, pokemonDetail } = useContext(PokemonContext);
+  const { getPokemonDetail, pokemonDetail, isLoading } = useContext(PokemonContext);
   
   useEffect(() => {
     /**
@@ -16,10 +16,16 @@ const PokemonDetail = () => {
     */
     getPokemonDetail(id).catch(null);
   }, []);
+
+  if(isLoading) {
+    return <p>Loading pokemon ....</p>
+  }
   
   return (
     <div>
-      <p>{pokemonDetail.name} details...!</p>
+      <p>{`Name: ${pokemonDetail?.name}`}</p>
+      <p>{`Weight: ${pokemonDetail?.weight} kg`}</p>
+      <p>{`Height: ${pokemonDetail?.height} cm`}</p>
     </div>
   );
 }
